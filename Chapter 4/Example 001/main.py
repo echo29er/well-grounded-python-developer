@@ -1,7 +1,13 @@
 from Person import Person
+from typing import List
+"""
+Program Purpose: 
+    This program creates a list of four instances of the Person class. 
+    It then prints out each person according to what is by the instance method full_name().
+"""
 
-def main(): 
-    people = [
+def main() -> None: 
+    people: List[Person] = [
         Person("John", "George", "Smith"), 
         Person("Bill", lname = "Thompson"),
         Person("Sam", mname = "Watson"),
