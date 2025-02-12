@@ -57,45 +57,65 @@ class Rectangle:
     # Instance methods (CONTINUE FROM HERE)
     """
     Instance methods: 
-        set_pen_color:
+        @property
+        x:
             Method purpose: 
-                Set the outline color of the Rectangle instance.  
+                Getter method of the Rectangle instance for the value of x. Getter identified by @property decorator. 
             Args: 
                 self: the instance of the Rectangle class.
-                color (tuple): color to set the outline.
             Returns: 
-                Self i.e. Rectangle object    
+                self._x value  
 
-        set_fill_color: 
+        @x.setter: 
             Method purpose: 
-                Set the fill color of the Rectangle instance.
+                Setter method of the Rectangle instance for the value of y. Setter identified by @x.setter decorator.
             Args: 
                 self: the instance of the Rectangle class.
-                color (tuple): color to set the fill.
+                value (int): the number of pixels to move in the horizontal axis.
             Returns: 
-                Self i.e. Rectangle object 
+                None
 
-        draw: 
+        @property
+        y:
             Method purpose: 
-                Draw the rectangle
+                Getter method of the Rectangle instance for the value of y. Getter identified by @property decorator. 
             Args: 
                 self: the instance of the Rectangle class.
+            Returns: 
+                self._y value  
+
+        @y.setter: 
+            Method purpose: 
+                Setter method of the Rectangle instance for the value of y. Setter identified by @y.setter decorator.
+            Args: 
+                self: the instance of the Rectangle class.
+                value (int): the number of pixels to move in the vertical axis.
             Returns: 
                 None
     """
 
-    def set_pen_color(self, color: tuple) -> Rectangle:
-        self.pen_color = color
-        return self
+    @property
+    def x(self):
+        return self._x
+    
+    @x.setter
+    def x(self, value: int):
+        if self._x + value < 0: # Don't allow for negative values
+            self._x = 0 
+        elif self._x + self._width + value > Screen.max_x: 
+            self._x = Screen.max_x - self._width
+        else:
+            self._x = value
 
-    def set_fill_color(self, color: tuple) -> Rectangle: 
-        self.fill_color = color
-        return self
-
-    def draw(self): 
-        arcade.draw_xywh_rectangle_filled(
-            self.x, self.y, self.width, self.height, self.fill_color
-        )
-        arcade.draw_xywh_rectangle_outline(
-            self.x, self.y, self.width, self.height, self.pen_color, 3
-        )
+    @property
+    def y(self):
+        return self._y
+    
+    @y.setter
+    def y(self, value: int):
+        if self._y + value < 0: # Don't allow for negative values
+            self._y = 0 
+        elif self._y + self._height + value > Screen.max_y: 
+            self._y = Screen.max_y - self._height
+        else:
+            self._y = value

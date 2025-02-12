@@ -78,44 +78,45 @@ class Rectangle:
         self.speed_y = speed_y
 
     # Instance methods
-    """
-    Instance methods: 
-        set_pen_color:
-            Method purpose: 
-                Set the outline color of the Rectangle instance.  
-            Args: 
-                self: the instance of the Rectangle class.
-                color (tuple): color to set the outline.
-            Returns: 
-                Self i.e. Rectangle object    
-
-        set_fill_color: 
-            Method purpose: 
-                Set the fill color of the Rectangle instance.
-            Args: 
-                self: the instance of the Rectangle class.
-                color (tuple): color to set the fill.
-            Returns: 
-                Self i.e. Rectangle object 
-
-        draw: 
-            Method purpose: 
-                Draw the rectangle
-            Args: 
-                self: the instance of the Rectangle class.
-            Returns: 
-                None
-    """
-
     def set_pen_color(self, color: tuple) -> Rectangle:
+        """
+            set_pen_color:
+                Method purpose: 
+                    Set the outline color of the Rectangle instance.  
+                Args: 
+                    self: the instance of the Rectangle class.
+                    color (tuple): color to set the outline.
+                Returns: 
+                    Self i.e. Rectangle object    
+        """
         self.pen_color = color
         return self
-
+    
     def set_fill_color(self, color: tuple) -> Rectangle: 
+        """
+            set_fill_color: 
+                Method purpose: 
+                    Set the fill color of the Rectangle instance.
+                Args: 
+                    self: the instance of the Rectangle class.
+                    color (tuple): color to set the fill.
+                Returns: 
+                    Self i.e. Rectangle object 
+        """
         self.fill_color = color
         return self
 
+
     def draw(self): 
+        """
+            draw: 
+                Method purpose: 
+                    Draw the rectangle based on the current state.
+                Args: 
+                    self: the instance of the Rectangle class.
+                Returns: 
+                    None
+        """
         arcade.draw_xywh_rectangle_filled(
             self.x, self.y, self.width, self.height, self.fill_color
         )
