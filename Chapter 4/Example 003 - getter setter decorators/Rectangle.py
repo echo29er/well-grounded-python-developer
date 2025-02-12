@@ -12,43 +12,28 @@ Class Purpose:
         + height (int): Defines the position of the rectangle on the screen.
         + pen_color (tuple): Defines the color used to outline the rectangle.
         + fill_color (tuple): Defines the color used to fill the rectangle.
-        + dir_x (int): Defines the direction of movement relative to the screen's x axes; these are either 1 or -1.
-        + dir_y (int): Defines the direction of movement relative to the screen's y axes; these are either 1 or -1.
-        + speed_x (int): Defines the speed at which the rectangle is moving in pixels per update.
-        + speed_y (int): Defines the speed at which the rectangle is moving in pixels per update.
 
     Instance methods: 
         + __init__(): None
             Function purpose: 
                 The constructor for the Rectangle class
 
-        + set_pen_color(): Rectangle
+        + x(): x # Getter
             Function purpose: 
-                Set the pen color
+                Returns the x value, treating x as a private attribute. 
 
-        + set_fill_color(): Rectangle
+        + x(): None # Setter
             Function purpose: 
-                Set the fill color
-        
-        + draw(): Rectangle
+                Assigns a value to x, treating x as a private attribute. 
+
+        + y(): y # Getter
             Function purpose: 
-                draw
+                Returns the y value, treating y as a private attribute. 
+
+        + y(): None # Setter
+            Function purpose: 
+                Assigns a value to y, treating y as a private attribute.
 """
-
-COLOR_PALETTE = [
-    arcade.color.BLACK,
-    arcade.color.LIGHT_GRAY,
-    arcade.color.LIGHT_CRIMSON,
-    arcade.color.LIGHT_BLUE,
-    arcade.color.LIGHT_CORAL,
-    arcade.color.LIGHT_CYAN,
-    arcade.color.LIGHT_GREEN,
-    arcade.color.LIGHT_YELLOW,
-    arcade.color.LIGHT_PASTEL_PURPLE,
-    arcade.color.LIGHT_SALMON,
-    arcade.color.LIGHT_TAUPE,
-    arcade.color.LIGHT_SLATE_GRAY,
-]
 
 class Rectangle: 
     # Constructor
@@ -58,26 +43,18 @@ class Rectangle:
         y: int, 
         width: int, 
         height: int, 
-        pen_color: tuple = COLOR_PALETTE[0],
-        fill_color: tuple = COLOR_PALETTE[1],
-        dir_x: int = 1, 
-        dir_y: int = 1, 
-        speed_x: int = 1, 
-        speed_y: int = 1
+        pen_color: str = "BLACK",
+        fill_color: str = "BLUE",
     ):
 
-        self.x = x
-        self.y = y
+        self._x = x # use _x to denote it's a private attribute
+        self._y = y # use _y to denote it's a private attribute
         self.width = width
         self.height = height
         self.pen_color = pen_color
         self.fill_color = fill_color
-        self.dir_x = dir_x
-        self.dir_y = dir_y
-        self.speed_x = speed_x
-        self.speed_y = speed_y
 
-    # Instance methods
+    # Instance methods (CONTINUE FROM HERE)
     """
     Instance methods: 
         set_pen_color:
